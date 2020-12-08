@@ -1,1 +1,36 @@
-<p>register works!</p>
+<h1>Register</h1>
+<div class="row">
+  <div class="col-md-8">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div id="user-data">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" class="form-control" placeholder="Your username" ngModel name="username"
+            required #username="ngModel">
+          <span class="help-block" *ngIf="!username.valid && username.touched">Please type an username!</span>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" class="form-control" placeholder="Type a password" ngModel
+            name="password" required #password="ngModel">
+          <span class="help-block" *ngIf="!password.valid && password.touched">Please type a password!</span>
+        </div>
+        <div class="form-group">
+          <label for="repassword">Repeat password</label>
+          <input type="password" id="repassword" class="form-control" placeholder="Repeat your password" ngModel
+            name="rePassword" required #rePassword="ngModel">
+          <span class="help-block" *ngIf="!rePassword.valid && rePassword.touched">Please re type the password!</span>
+        </div>
+      </div>
+      <div class="re-captcha">        
+          <re-captcha 
+          (resolved)="resolved($event)"                     
+                      siteKey="6LdHJb8ZAAAAABLi0nwYhHIZK7R2GUl491DRGrSI">  
+          </re-captcha>
+        </div>     
+      <button class="btn btn-primary"
+      [disabled]="!f.valid"
+      >Submit</button>
+      <span> Аlready have an account?<a routerLink="/login"> Login here</a></span>
+    </form>
+</div>

@@ -1,38 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
-
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router'
 import { AppComponent } from './app.component';
-import { UsersComponent } from './pages/users/users.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { PublicationsComponent } from './pages/publications/publications.component';
-import { UserService } from './user.service';
-import { ArticlesService } from './articles.service';
-import { HomeComponent } from './home/home.component';
 import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { PagesModule } from './pages/pages.module';
+import { HttpClientModule } from '@angular/common/http';
+import { CreateArticleComponent } from './pages/create-article/create-article.component';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
 
+const appRoutes: Routes = [
+  {path: '', pathMatch: 'full', component: HomeComponent },
+  {path: 'login', component: LoginComponent },
+  {path: 'register', component: RegisterComponent },
+  {path: 'create-article', component: CreateArticleComponent, canActivate: [AuthGuard]}
+]
 @NgModule({
   declarations: [
-    AppComponent,           
-    UsersComponent,
-    LoginComponent,
-    RegisterComponent,
-    PublicationsComponent,    
-    HomeComponent
+    AppComponent,
+    HomeComponent    
   ],
   imports: [
-    CoreModule,
-    SharedModule,
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,    
+    CoreModule,
+    PagesModule,
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule    
   ],
   providers: [
-    UserService,
-    ArticlesService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
