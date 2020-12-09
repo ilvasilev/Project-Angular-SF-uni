@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -21,17 +21,7 @@ export class AuthService {
   };
 
   loggedIn() {    
-    return this.http.get<any>(this._verifyUrl).subscribe(
-      res => {
-        if (res.status) {
-          localStorage.setItem('status', 'true');
-        } else {
-          localStorage.setItem('status', 'false');
-        }
-      },
-      err => console.log (err)     
-    )
-    
+    return this.http.get<any>(this._verifyUrl);
   };
 
   getToken() {

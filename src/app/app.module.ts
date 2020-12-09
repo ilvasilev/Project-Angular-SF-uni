@@ -12,6 +12,7 @@ import { CreateArticleComponent } from './pages/create-article/create-article.co
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service'
+import { ArticlesService } from './articles.service';
 
 const appRoutes: Routes = [
   {path: '', pathMatch: 'full', component: HomeComponent },
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
   providers: [
     AuthService,
     AuthGuard,
+    ArticlesService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

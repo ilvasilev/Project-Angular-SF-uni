@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from './auth.service'
 
 @Injectable({
@@ -10,15 +11,17 @@ export class AuthGuard implements CanActivate {
   constructor(private _authService: AuthService,
     private _router: Router) { }
 
-  canActivate(): boolean {
-    this._authService.loggedIn()
-     const bool = JSON.parse(localStorage.getItem("status"));     
-   if(bool) {
-     console.log('true')
-     return true;    
-   } else {
-    console.log('false')
-    this._router.navigate(['/login']);
-   }
+  async canActivate(route: ActivatedRouteSnapshot, router: RouterStateSnapshot): Promise<boolean> {    
+    return new Promise ((resolve => {
+      this._authService.loggedIn().subscribe(res => {
+        if (res.status) {
+          console.log(res.status)
+          resolve(true)
+        } else {
+          console.log(res.status);          
+          resolve(false);
+        }
+      })
+    }))
   }
 }
