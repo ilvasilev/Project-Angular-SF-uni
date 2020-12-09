@@ -9,16 +9,20 @@ import { RegisterComponent } from './pages/register/register.component';
 import { PagesModule } from './pages/pages.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateArticleComponent } from './pages/create-article/create-article.component';
-import { AuthService } from './auth.service';
-import { AuthGuard } from './auth.guard';
-import { TokenInterceptorService } from './token-interceptor.service'
+import { AuthService } from './User/auth.service';
+import { AuthGuard } from './User/auth.guard';
+import { TokenInterceptorService } from './User/token-interceptor.service'
 import { ArticlesService } from './articles.service';
+import { UsersComponent } from './pages/users/users.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const appRoutes: Routes = [
   {path: '', pathMatch: 'full', component: HomeComponent },
   {path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent },
-  {path: 'create-article', component: CreateArticleComponent, canActivate: [AuthGuard]}
+  {path: 'create-article', component: CreateArticleComponent, canActivate: [AuthGuard]},
+  {path: 'users', component: UsersComponent},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]}
 ]
 @NgModule({
   declarations: [

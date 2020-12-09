@@ -6,12 +6,14 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CreateArticleComponent } from './create-article/create-article.component';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
-    CreateArticleComponent    
+    CreateArticleComponent,
+    ProfileComponent    
   ],
   imports: [
     CommonModule,
