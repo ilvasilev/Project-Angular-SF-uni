@@ -7,10 +7,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { PagesModule } from './pages/pages.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateArticleComponent } from './pages/create-article/create-article.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
+import { TokenInterceptorService } from './token-interceptor.service'
 
 const appRoutes: Routes = [
   {path: '', pathMatch: 'full', component: HomeComponent },
@@ -32,7 +33,12 @@ const appRoutes: Routes = [
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

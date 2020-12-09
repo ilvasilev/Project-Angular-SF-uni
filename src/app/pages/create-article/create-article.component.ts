@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service'
 
 @Component({
   selector: 'app-create-article',
@@ -11,10 +13,23 @@ export class CreateArticleComponent implements OnInit {
   title = '';
   content = '';
   imageUrl = '';
+  events = []
   
-  constructor() { }
+  constructor(private _authService: AuthService,
+              private _router: Router) { }
 
   ngOnInit(): void {
+    /*this._authService.verifyLogin()
+    .subscribe(
+      res => {
+        if (!res.status) {
+          this._router.navigate(['/login'])
+        }
+      },
+      err => {
+        console.log(err)        
+      }
+    )*/
   }  
 
   onSubmit(form: NgForm) {
