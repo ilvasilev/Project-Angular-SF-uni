@@ -33,9 +33,6 @@ export class CreateArticleComponent implements OnInit {
       },
       err => console.log(err)
     )
-
-
     form.resetForm();
   }
-
 }

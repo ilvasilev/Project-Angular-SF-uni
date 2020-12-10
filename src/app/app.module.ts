@@ -16,6 +16,7 @@ import { ArticlesService } from './Articles/articles.service';
 import { UsersComponent } from './pages/users/users.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ShortenerPipe } from './shortener.pipe';
+import { SingleArticleComponent } from './pages/single-article/single-article.component';
 
 const appRoutes: Routes = [
   {path: '', pathMatch: 'full', component: HomeComponent },
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent },
   {path: 'create-article', component: CreateArticleComponent, canActivate: [AuthGuard]},
   {path: 'users', component: UsersComponent},
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]}
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: 'single-article/:id', component: SingleArticleComponent}
 ]
 @NgModule({
   declarations: [

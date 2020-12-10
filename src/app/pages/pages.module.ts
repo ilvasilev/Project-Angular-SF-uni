@@ -8,6 +8,7 @@ import { CreateArticleComponent } from './create-article/create-article.componen
 import { RecaptchaModule } from 'ng-recaptcha';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './users/users.component';
+import { SingleArticleComponent } from './single-article/single-article.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UsersComponent } from './users/users.component';
     RegisterComponent,
     CreateArticleComponent,
     ProfileComponent,
-    UsersComponent   
+    UsersComponent,
+    SingleArticleComponent   
   ],
   imports: [
     CommonModule,

@@ -7,16 +7,32 @@ import { HttpClient } from '@angular/common/http';
 
 export class ArticlesService {
 
-  private _homeArticlesUrl = 'http://localhost:9999/api/origami';
-  private _createArticleUrl = 'http://localhost:9999/api/origami';
+  private _articlesUrl = 'http://localhost:9999/api/origami';
+  private _commentsUrl = 'http://localhost:9999/api/comment';
 
   constructor(private http: HttpClient) { }
 
   loadArticles(): Observable<IArticle[]> {
-    return this.http.get<IArticle[]>(this._homeArticlesUrl);
+    return this.http.get<IArticle[]>(this._articlesUrl);
   }
 
   createArticle(title, content, imageUrl) {
-    return this.http.post<any>(this._createArticleUrl, {title, content, imageUrl}, {observe: 'response'})
+    return this.http.post<any>(this._articlesUrl, {title, content, imageUrl}, {observe: 'response'})
+  }
+
+  loadSingleArticle(id) {
+    return this.http.get<any>(`${this._articlesUrl}/${id}`);
+  }
+
+  loadArticleComments(id) {
+    return this.http.get<any>(`${this._articlesUrl}/${id}/comments`);
+  }
+
+  createComment(comment, articleId) {
+    return this.http.post<any>(this._commentsUrl, {comment, articleId}, {observe: 'response'})
+  }
+
+  likeComment(commentId) {
+    return this.http.put<any>(this._commentsUrl, {commentId}, {observe: 'response'})
   }
 }
