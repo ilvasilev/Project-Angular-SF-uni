@@ -12,7 +12,7 @@ import { CreateArticleComponent } from './pages/create-article/create-article.co
 import { AuthService } from './User/auth.service';
 import { AuthGuard } from './User/auth.guard';
 import { TokenInterceptorService } from './User/token-interceptor.service'
-import { ArticlesService } from './articles.service';
+import { ArticlesService } from './Articles/articles.service';
 import { UsersComponent } from './pages/users/users.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 
