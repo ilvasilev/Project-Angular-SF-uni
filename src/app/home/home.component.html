@@ -6,7 +6,7 @@
               <h4 class="card-title">{{article.title}}</h4>
               <p>by {{article.createdBy}} on {{article.created_at | date}}</p>
               <p class="card-text">{{article.content | shortener}}</p>
-              <a href="#" class="btn btn-primary">See more</a>
+              <a routerLink="/article-{{article._id}}" class="btn btn-primary">See more</a>
             </div>
           </div> 
     </div>

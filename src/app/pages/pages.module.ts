@@ -7,13 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { CreateArticleComponent } from './create-article/create-article.component';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     CreateArticleComponent,
-    ProfileComponent    
+    ProfileComponent,
+    UsersComponent   
   ],
   imports: [
     CommonModule,

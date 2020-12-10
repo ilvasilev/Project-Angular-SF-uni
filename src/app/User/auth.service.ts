@@ -9,7 +9,8 @@ export class AuthService {
 
   private _loginUrl = 'http://localhost:9999/api/user/login';
   private _registerUrl = 'http://localhost:9999/api/user/register';
-  private _verifyUrl = 'http://localhost:9999/api/user/verify'
+  private _verifyUrl = 'http://localhost:9999/api/user/verify';
+  private _usersUrl = 'http://localhost:9999/api/user/users';
 
   constructor(private http: HttpClient, private _router: Router) { }
 
@@ -38,6 +39,10 @@ export class AuthService {
     localStorage.removeItem('username');
     localStorage.removeItem('id');
     this._router.navigate(['/']);
-  } 
+  }
+
+  getUsers() {
+    return this.http.get<any>(this._usersUrl);
+  }
 
 }
