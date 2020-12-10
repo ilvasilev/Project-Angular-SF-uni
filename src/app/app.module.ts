@@ -15,6 +15,7 @@ import { TokenInterceptorService } from './User/token-interceptor.service'
 import { ArticlesService } from './Articles/articles.service';
 import { UsersComponent } from './pages/users/users.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ShortenerPipe } from './shortener.pipe';
 
 const appRoutes: Routes = [
   {path: '', pathMatch: 'full', component: HomeComponent },
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent    
+    HomeComponent,
+    ShortenerPipe   
   ],
   imports: [
     BrowserModule,

@@ -1,17 +1,18 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">WebSiteName</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
-        <li routerLinkActive="active" *ngIf="_authService.isTokenAvailable()"><a routerLink="/create-article">Create article</a></li>
-        <li routerLinkActive="active" *ngIf="_authService.isTokenAvailable()"><a routerLink="/profile">Profile</a></li>
-        <li routerLinkActive="active"><a routerLink="/users">Users</a></li>
-        <li (click)="_authService.logOut()" *ngIf="_authService.isTokenAvailable()"><a routerLink="">Logout</a></li>
-        <li routerLinkActive="active" *ngIf="!_authService.isTokenAvailable()"><a routerLink="/login">Login</a></li>
-        <li routerLinkActive="active" *ngIf="!_authService.isTokenAvailable()"><a routerLink="/register">Register</a></li>
-      </ul>
-    </div>
-  </nav>
-    
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#">
+    <img src="../../../assets/blog.png" alt="logo" style="width:40px;">
+  </a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a class="nav-link" routerLink="/">Home</a></li>
+    <li routerLinkActive="active" *ngIf="_authService.isTokenAvailable()"><a class="nav-link" routerLink="/create-article">Create
+        article</a></li>
+    <li routerLinkActive="active" *ngIf="_authService.isTokenAvailable()"><a class="nav-link" routerLink="/profile">Profile</a></li>
+    <li routerLinkActive="active"><a class="nav-link" routerLink="/users">Users</a></li>
+    <li (click)="_authService.logOut()" *ngIf="_authService.isTokenAvailable()"><a class="nav-link" routerLink="">Logout</a></li>
+    <li routerLinkActive="active " *ngIf="!_authService.isTokenAvailable()"><a class="nav-link" routerLink="/login">Login</a></li>
+    <li routerLinkActive="active " *ngIf="!_authService.isTokenAvailable()"><a class="nav-link" routerLink="/register">Register</a></li>
+  </ul>
+</nav>
