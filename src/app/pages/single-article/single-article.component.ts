@@ -45,7 +45,7 @@ export class SingleArticleComponent implements OnInit {
     this._articles.createComment(this.comment, this.id)
     .subscribe(
       res => {
-        console.log(res)        
+        this.ngOnInit()       
       },
       err => console.log(err)
     )
@@ -55,7 +55,9 @@ export class SingleArticleComponent implements OnInit {
   onLike(commentId) {
     this.commentId = commentId
     this._articles.likeComment(this.commentId).subscribe(
-      res => console.log(res),
+      res => {
+        this.ngOnInit()
+      },
       err => console.log(err)
     )
   }
