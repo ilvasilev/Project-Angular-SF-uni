@@ -3,13 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
-import { ErrormessageComponent } from './errormessage/errormessage.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent,
-    ErrormessageComponent
+    FooterComponent
+    
   ],
   imports: [
     CommonModule,
@@ -17,8 +16,7 @@ import { ErrormessageComponent } from './errormessage/errormessage.component';
   ],
   exports: [
     HeaderComponent,
-    FooterComponent,
-    ErrormessageComponent
+    FooterComponent    
   ]
 })
 export class CoreModule { }

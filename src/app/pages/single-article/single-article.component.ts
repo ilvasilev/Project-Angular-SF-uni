@@ -22,7 +22,7 @@ export class SingleArticleComponent implements OnInit {
     private activated: ActivatedRoute,
     private _articles: ArticlesService,
     public auth: AuthService,
-    private router: Router) { }
+    private _router: Router) { }
 
   ngOnInit(): void {
     this.id = this.activated.snapshot.paramMap.get("id");
@@ -60,5 +60,14 @@ export class SingleArticleComponent implements OnInit {
       },
       err => console.log(err)
     )
+  }
+
+  onDelete() {
+    this.id = this.activated.snapshot.paramMap.get("id")
+    this._articles.deleteArticle(this.id)
+    .subscribe(
+      res => this._router.navigate(['/']),
+      err => console.log(err)
+    )    
   }
 }

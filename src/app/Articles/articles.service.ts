@@ -35,4 +35,8 @@ export class ArticlesService {
   likeComment(commentId) {
     return this.http.put<any>(this._commentsUrl, {commentId}, {observe: 'response'})
   }
+
+  deleteArticle(id) {
+    return this.http.delete<any>(`${this._articlesUrl}/${id}`, id)
+  }
 }
