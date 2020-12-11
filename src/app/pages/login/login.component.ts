@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   username = '';
   password = '';
+  errorMessage = '';
 
   constructor(
     private _auth: AuthService,
@@ -37,7 +38,9 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('id', id);
         this._router.navigate(['/']);
       },
-      err => console.log(err)
+      err => {
+        this.errorMessage = `Something went wrong, please try again!(${err.statusText})`;        
+      }
       )
 
     form.resetForm();

@@ -4,3 +4,7 @@ input.ng-invalid.ng-touched {
 textarea.ng-invalid.ng-touched {
     border: 1px solid red;
 }
+
+.file-upload {
+    margin-bottom: 30px;
+}

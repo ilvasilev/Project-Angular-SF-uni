@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   password = '';
   rePassword = '';
   token = '';
+  errorMessage = '';
   
 
   constructor(
@@ -38,21 +39,29 @@ export class RegisterComponent implements OnInit {
     this.password = form.value.password;
     this.rePassword = form.value.rePassword;    
     
-    this._auth.registerUser(this.username, this.password, this.token)
-    .subscribe(
-      res => {
-        const authToken = res.headers.get('Authorization');
-        const username = res.body.username;
-        const id = res.body._id
-        console.log('here')        
-        localStorage.setItem('token', authToken);
-        localStorage.setItem('username', username);
-        localStorage.setItem('id', id);
-        this._router.navigate(['/']);
-      },
-      err => console.log(err)
-    )
-
-    form.resetForm();
+    if(this.password === this.rePassword) {
+      this._auth.registerUser(this.username, this.password, this.token)
+      .subscribe(
+        res => {
+          const authToken = res.headers.get('Authorization');
+          const username = res.body.username;
+          const id = res.body._id
+          console.log('here')        
+          localStorage.setItem('token', authToken);
+          localStorage.setItem('username', username);
+          localStorage.setItem('id', id);
+          this._router.navigate(['/']);
+        },
+        err => {
+          this.errorMessage = `Something went wrong, please try again!(${err.statusText})`
+          console.log(err)          
+          form.resetForm();
+        }
+      )  
+      form.resetForm();
+    } else {
+      this.errorMessage = "Password doesn't match, please try again!"
+      form.resetForm();
+    }
   }
 }

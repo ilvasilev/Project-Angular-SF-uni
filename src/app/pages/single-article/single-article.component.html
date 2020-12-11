@@ -20,7 +20,7 @@
                 required
                 #content="ngModel"
                 ></textarea>            
-            </div>        
+            </div>
         </div>
         <button class="btn btn-primary">Submit</button>            
     </form>
@@ -28,6 +28,6 @@
     <div class="comment-card" *ngFor = "let comment of comments">
         <h4>{{comment.createdBy}}</h4>
         <p>{{comment.comment}}</p>
-        <p><i class="fas fa-thumbs-up" (click)="onLike(comment._id)"></i> {{comment.like}}</p>
+        <p><i *ngIf="auth.isTokenAvailable()" class="fas fa-thumbs-up" (click)="onLike(comment._id)"></i> Likes: {{comment.like}}</p>
     </div>
 

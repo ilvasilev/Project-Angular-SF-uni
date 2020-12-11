@@ -9,6 +9,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './users/users.component';
 import { SingleArticleComponent } from './single-article/single-article.component';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SingleArticleComponent } from './single-article/single-article.componen
     CommonModule,
     RouterModule,
     FormsModule,
-    RecaptchaModule
+    RecaptchaModule,
+    CoreModule
   ],
   exports: [
     LoginComponent,
