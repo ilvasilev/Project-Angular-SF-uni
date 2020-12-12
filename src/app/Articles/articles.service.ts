@@ -12,8 +12,8 @@ export class ArticlesService {
 
   constructor(private http: HttpClient) { }
 
-  loadArticles(): Observable<IArticle[]> {
-    return this.http.get<IArticle[]>(this._articlesUrl);
+  loadArticles(length): Observable<IArticle[]> {
+    return this.http.get<IArticle[]>(`${this._articlesUrl}${length}`);
   }
 
   createArticle(title, content, imageUrl) {
@@ -38,5 +38,9 @@ export class ArticlesService {
 
   deleteArticle(id) {
     return this.http.delete<any>(`${this._articlesUrl}/${id}`, id)
+  }
+
+  updateArticle(id, title, content, imageUrl) {
+    return this.http.put<any>(`${this._articlesUrl}/${id}`, {title, content, imageUrl}, {observe: 'response'})
   }
 }

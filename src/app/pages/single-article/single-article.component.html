@@ -1,34 +1,42 @@
+<div *ngIf="article.author === localId">
+    <p><i class="fas fa-edit" routerLink="/edit-article/{{article._id}}"></i> Edit article | <i class="fas fa-trash-alt"
+        (click)="onDelete()"></i> Delete article</p>
+    </div>
 <div class="hero-image" [ngStyle]="{'background-image': 'url(' + article.imageUrl + ')'}">
-    <div class="hero-text">            
-        <h1 style="font-size:50px">{{article.title}}</h1>
-        <h4>by {{article.createdBy}}</h4>        
+  <div class="hero-text">
+    <h1 style="font-size:50px">{{article.title}}</h1>
+    <h4>by {{article.createdBy}}</h4>
+</div>
+</div>
+<p class="article-content">{{article.content}}</p>
+
+<div class="row">
+    <div class="col-sm-12">
+        <ul class="list-inline rating-list" 
+            *ngFor="let star of stars" style="display: inline-block" >
+              <li (click)="countStar(star)"
+                  [ngClass]="{'selected': (star <= selectedValue)}">
+                <i class="fa fa-star"></i>
+              </li> 
+        </ul>
     </div>
   </div>
-  <p><i class="fas fa-edit"></i> Edit article | <i class="fas fa-trash-alt" (click)="onDelete()"></i> Delete article</p>
-<p class="article-content">{{article.content}}</p>
+
 <h3>Comments</h3>
 <div *ngIf="auth.isTokenAvailable()">
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-        <div id="user-data">                       
-            <div class="form-group">            
-                <textarea                    
-                id="comment"
-                rows="5"
-                class="form-control"
-                placeholder="Your comment"
-                ngModel
-                name="comment"
-                required
-                #content="ngModel"
-                ></textarea>            
-            </div>
-        </div>
-        <button class="btn btn-primary">Submit</button>            
-    </form>
-</div>
-    <div class="comment-card" *ngFor = "let comment of comments">
-        <h4>{{comment.createdBy}}</h4>
-        <p>{{comment.comment}}</p>
-        <p><i *ngIf="auth.isTokenAvailable()" class="fas fa-thumbs-up" (click)="onLike(comment._id)"></i> Likes: {{comment.like}}</p>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div id="user-data">
+      <div class="form-group">
+        <textarea id="comment" rows="5" class="form-control" placeholder="Your comment" ngModel name="comment" required
+          #content="ngModel"></textarea>
+      </div>
     </div>
-
+    <button class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<div class="comment-card" *ngFor="let comment of comments">
+  <h4>{{comment.createdBy}}</h4>
+  <p>{{comment.comment}}</p>
+  <p><i *ngIf="auth.isTokenAvailable()" class="fas fa-thumbs-up" (click)="onLike(comment._id)"></i> Likes:
+    {{comment.like}}</p>
+</div>

@@ -1,13 +1,23 @@
+<div class="jumbotron text-center">
+  <h2 class="card-title h2">Angular project using Express JS and MongoDB</h2>
+  <div class="row d-flex justify-content-center">
+  </div>
+  <hr class="my-4">
+  <div class="pt-2">
+    <button type="button" class="btn btn-dark" (click)="changeParams('3')">Show 3 aricles<span class="far fa-gem ml-1"></span>
+    </button> <button type="button" class="btn btn-dark" (click)="changeParams('6')">Show 6 aricles<span class="far fa-gem ml-1"></span></button> </div>
+</div>
+
 <div class="row mt-5">
-    <div class="card-deck" *ngFor="let article of articles">
-        <div class="card" style="width:300px">
-            <img class="card-img-top" src="{{article.imageUrl}}" alt="Card image" style="width:100%">
-            <div class="card-body">
-              <h4 class="card-title">{{article.title}}</h4>
-              <p>by {{article.createdBy}} on {{article.created_at | date}}</p>
-              <p class="card-text">{{article.content | shortener}}</p>
-              <a routerLink="/single-article/{{article._id}}" class="btn btn-primary">See more</a>
-            </div>
-          </div> 
+  <div class="card-deck" *ngFor="let article of articles">
+    <div class="card" style="width:300px">
+      <img class="card-img-top" src="{{article.imageUrl}}" alt="Card image" style="width:100%">
+      <div class="card-body">
+        <h4 class="card-title">{{article.title}}</h4>
+        <p>by {{article.createdBy}} on {{article.created_at | date}}</p>
+        <p class="card-text">{{article.content | shortener}}</p>
+        <a routerLink="/single-article/{{article._id}}" class="btn btn-primary">See more</a>
+      </div>
     </div>
+  </div>
 </div>

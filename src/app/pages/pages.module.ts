@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './users/users.component';
 import { SingleArticleComponent } from './single-article/single-article.component';
 import { CoreModule } from '../core/core.module';
+import { EditArticleComponent } from './edit-article/edit-article.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +19,15 @@ import { CoreModule } from '../core/core.module';
     CreateArticleComponent,
     ProfileComponent,
     UsersComponent,
-    SingleArticleComponent   
+    SingleArticleComponent,
+    EditArticleComponent   
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     RecaptchaModule,
-    CoreModule
+    CoreModule    
   ],
   exports: [
     LoginComponent,

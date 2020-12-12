@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArticlesService } from 'src/app/Articles/articles.service';
 import { AuthService } from 'src/app/User/auth.service';
+import { StarRatingComponent } from 'ng-starrating';
 
 @Component({
   selector: 'app-single-article',
@@ -17,6 +18,9 @@ export class SingleArticleComponent implements OnInit {
   comments = [];  
   comment = ''; 
   commentId = '';
+  localId = localStorage.getItem('id')
+  stars: number[] = [1, 2, 3, 4, 5];
+  selectedValue: number;
 
   constructor(private http: HttpClient,
     private activated: ActivatedRoute,
@@ -35,7 +39,7 @@ export class SingleArticleComponent implements OnInit {
         console.log(this.article)
       },      
       err => console.log(err)
-    )
+    )    
   }
 
   onSubmit(form: NgForm) {
@@ -69,5 +73,10 @@ export class SingleArticleComponent implements OnInit {
       res => this._router.navigate(['/']),
       err => console.log(err)
     )    
+  }
+
+  countStar(star) {
+    this.selectedValue = star;
+    console.log('Value of star', star);
   }
 }
