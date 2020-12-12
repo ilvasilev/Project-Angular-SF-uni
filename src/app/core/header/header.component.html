@@ -1,17 +1,15 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- Brand/logo -->
   <a class="navbar-brand" href="#">
     <img src="../../../assets/blog.png" alt="logo" style="width:40px;">
   </a>
-
-  <!-- Links -->
   <ul class="navbar-nav">
-    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a class="nav-link" routerLink="/">Home</a></li>
-    <li routerLinkActive="active" *ngIf="_authService.isTokenAvailable()"><a class="nav-link" routerLink="/create-article">Create
-        article</a></li>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a class="nav-link" routerLink="/">Home</a>
+    </li>
+    <li routerLinkActive="active" *ngIf="_authService.isTokenAvailable()"><a class="nav-link" routerLink="/create-article">Create article</a></li>
     <li routerLinkActive="active" *ngIf="_authService.isTokenAvailable()"><a class="nav-link" routerLink="/profile">Profile</a></li>
     <li routerLinkActive="active"><a class="nav-link" routerLink="/users">Users</a></li>
-    <li (click)="_authService.logOut()" *ngIf="_authService.isTokenAvailable()"><a class="nav-link" routerLink="">Logout</a></li>
+    <li routerLinkActive="active"><a class="nav-link" routerLink="/articles">Articles</a></li>
+    <li (click)="_authService.logOut()" *ngIf="_authService.isTokenAvailable()"><a class="nav-link">Logout</a></li>
     <li routerLinkActive="active " *ngIf="!_authService.isTokenAvailable()"><a class="nav-link" routerLink="/login">Login</a></li>
     <li routerLinkActive="active " *ngIf="!_authService.isTokenAvailable()"><a class="nav-link" routerLink="/register">Register</a></li>
   </ul>

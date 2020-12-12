@@ -16,7 +16,7 @@
       <div class="card-body">
         <h4 class="card-title">{{article.title}}</h4>
         <p>by {{article.createdBy}} on {{article.created_at | date}}</p>
-        <p class="card-text">{{article.content | shortener}}</p>
+        <p class="card-text">{{article.content | shortener:80}}</p>
         <a routerLink="/single-article/{{article._id}}" class="btn btn-primary">See more</a>
       </div>
     </div>

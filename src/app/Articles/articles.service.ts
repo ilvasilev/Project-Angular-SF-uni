@@ -43,4 +43,8 @@ export class ArticlesService {
   updateArticle(id, title, content, imageUrl) {
     return this.http.put<any>(`${this._articlesUrl}/${id}`, {title, content, imageUrl}, {observe: 'response'})
   }
+
+  updateRating(id, value) {
+    return this.http.put<any>(`${this._articlesUrl}/rating/${id}`, {value}, {observe: 'response'})
+  }
 }

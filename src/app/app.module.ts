@@ -15,9 +15,10 @@ import { TokenInterceptorService } from './User/token-interceptor.service'
 import { ArticlesService } from './Articles/articles.service';
 import { UsersComponent } from './pages/users/users.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { ShortenerPipe } from './shortener.pipe';
 import { SingleArticleComponent } from './pages/single-article/single-article.component';
 import { EditArticleComponent } from './pages/edit-article/edit-article.component';
+import { ArticlesComponent } from './pages/articles/articles.component';
+import { SharedModule } from './shared/shared.module';
 
 
 const appRoutes: Routes = [
@@ -28,13 +29,13 @@ const appRoutes: Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'single-article/:id', component: SingleArticleComponent},
-  {path: 'edit-article/:id', component: EditArticleComponent}
+  {path: 'edit-article/:id', component: EditArticleComponent},
+  {path: 'articles', component: ArticlesComponent}
 ]
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ShortenerPipe   
+    HomeComponent      
   ],
   imports: [
     BrowserModule,
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     PagesModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
+    SharedModule
   ],
   providers: [
     AuthService,

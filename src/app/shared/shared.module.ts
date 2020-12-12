@@ -1,20 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ArticleCardTemplateComponent } from './article-card-template/article-card-template.component';
-import { ArticleCardComponent } from './article-card/article-card.component';
-
+import { ShortenerPipe } from './shortener.pipe';
 
 @NgModule({
   declarations: [
-    ArticleCardComponent,
-    ArticleCardTemplateComponent
+    ShortenerPipe
+  ],
+  exports: [
+    ShortenerPipe
   ],
   imports: [
     CommonModule
-  ],
-  exports: [
-    ArticleCardComponent,
-    ArticleCardTemplateComponent
   ]
 })
 export class SharedModule { }

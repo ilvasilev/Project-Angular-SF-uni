@@ -3,7 +3,8 @@
 <div *ngFor="let article of user.posts">
     <div class="card bg-light text-dark">
         <div class="card-body">
-            <strong><a routerLink="/single-article/{{article._id}}">{{article.title}}</a></strong>            
-            <p>{{article.comments.length}} comments  on this article</p>
+            <strong><a routerLink="/single-article/{{article._id}}">{{article.title}}</a></strong>
+            <p>{{article.content | shortener:200}}</p>
+            <p class="small">{{article.comments.length}} comments  on this article</p>
     </div>
 </div>

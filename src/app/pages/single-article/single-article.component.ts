@@ -35,6 +35,7 @@ export class SingleArticleComponent implements OnInit {
     .subscribe(
       res => {
         this.article = res
+        this.selectedValue = res.rating;
         this.comments = res.comments
         console.log(this.article)
       },      
@@ -77,6 +78,13 @@ export class SingleArticleComponent implements OnInit {
 
   countStar(star) {
     this.selectedValue = star;
-    console.log('Value of star', star);
+    this.id = this.activated.snapshot.paramMap.get("id");
+    this._articles.updateRating(this.id, this.selectedValue.toString())
+    .subscribe(
+      res => {
+        this.ngOnInit()
+      },
+      err => console.log(err  )
+    )    
   }
 }

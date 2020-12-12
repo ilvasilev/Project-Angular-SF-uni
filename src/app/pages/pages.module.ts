@@ -11,6 +11,8 @@ import { UsersComponent } from './users/users.component';
 import { SingleArticleComponent } from './single-article/single-article.component';
 import { CoreModule } from '../core/core.module';
 import { EditArticleComponent } from './edit-article/edit-article.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -21,14 +23,16 @@ import { EditArticleComponent } from './edit-article/edit-article.component';
     ProfileComponent,
     UsersComponent,
     SingleArticleComponent,
-    EditArticleComponent    
+    EditArticleComponent,
+    ArticlesComponent    
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     RecaptchaModule,
-    CoreModule    
+    CoreModule,
+    SharedModule   
   ],
   exports: [
     LoginComponent,
