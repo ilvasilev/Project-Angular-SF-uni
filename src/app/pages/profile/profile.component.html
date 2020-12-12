@@ -1,1 +1,9 @@
-<p>profile works!</p>
+<h1>{{user.username}} has {{user.posts.length}} articles published</h1>
+
+<div *ngFor="let article of user.posts">
+    <div class="card bg-light text-dark">
+        <div class="card-body">
+            <strong><a routerLink="/single-article/{{article._id}}">{{article.title}}</a></strong>            
+            <p>{{article.comments.length}} comments  on this article</p>
+    </div>
+</div>

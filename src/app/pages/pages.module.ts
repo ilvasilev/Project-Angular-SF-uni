@@ -12,6 +12,7 @@ import { SingleArticleComponent } from './single-article/single-article.componen
 import { CoreModule } from '../core/core.module';
 import { EditArticleComponent } from './edit-article/edit-article.component';
 
+
 @NgModule({
   declarations: [
     LoginComponent,
@@ -20,7 +21,7 @@ import { EditArticleComponent } from './edit-article/edit-article.component';
     ProfileComponent,
     UsersComponent,
     SingleArticleComponent,
-    EditArticleComponent   
+    EditArticleComponent    
   ],
   imports: [
     CommonModule,

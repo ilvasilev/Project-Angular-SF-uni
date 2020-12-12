@@ -1,4 +1,3 @@
-import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { ArticlesService } from '../Articles/articles.service'
 
@@ -9,23 +8,26 @@ import { ArticlesService } from '../Articles/articles.service'
 })
 export class HomeComponent implements OnInit {
 
-  articleLengthQuery = '?length='
-  articlelengthParam = '3';
+  articleLengthQuery = '?length='   
   articles = [];
 
   constructor(private _article: ArticlesService) { }
 
   ngOnInit(): void {
+    
+    if(!localStorage.getItem('articleLength')) {
+      localStorage.setItem('articleLength', '3')
+    }
 
-    this._article.loadArticles(`${this.articleLengthQuery}${this.articlelengthParam}`)
+    this._article.loadArticles(`${this.articleLengthQuery}${localStorage.getItem('articleLength')}`)
     .subscribe(
       res => this.articles = res,
       err => console.log(err)
     )
   }
 
-  changeParams(articleParam) {
-    this.articlelengthParam = articleParam;
+  changeParams(articleParam) {    
+    localStorage.setItem('articleLength', `${articleParam}`)
     this.ngOnInit();
   }
 

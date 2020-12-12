@@ -11,6 +11,7 @@ export class AuthService {
   private _registerUrl = 'http://localhost:9999/api/user/register';
   private _verifyUrl = 'http://localhost:9999/api/user/verify';
   private _usersUrl = 'http://localhost:9999/api/user/users';
+  private _userUrl = 'http://localhost:9999/api/user?id='
 
   constructor(private http: HttpClient, private _router: Router) { }
 
@@ -43,6 +44,10 @@ export class AuthService {
 
   getUsers() {
     return this.http.get<any>(this._usersUrl);
+  }
+
+  getUser(id) {
+    return this.http.get<any>(`${this._userUrl}${id}`);
   }
 
 }
