@@ -1,27 +1,28 @@
-# SfBlog
+## A Softuni project using Angular and ExpressJS/MongoDB 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
+What can be found here:
+- Project description
+- How to start the project
+- Front end and backend brief description
 
-## Development server
+## Project description
+The blog project as the name suggest is a blog application using Angular 10 as a frontend and Node/Express/MongoDb/Mongoose for back-end. You can register, create articles, comment on your or other articles, like the comments and rate the articles. The project use reCaptcha for front-end and back-end verification. The whole app is a single page.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## How to start the project
 
-## Code scaffolding
+1. Install dependencies
+- from cmd prompt type in /restapi this command to install backend dependencies
+### `npm install`
+- from the main directory type in cmd prompt to install frontend dependencies
+### `npm install`
+2. Start the back-end part
+- from cmd prompt type in /restapi this command.
+### `npm start`
+- from the main directory type in cmd prompt:
+### `ng s`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+That's it, now you can use the application
 
-## Build
+## Front end and backend brief description
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This app uses Angular as a front-end, Bootstrap and custom CSS and all the fetch requests are handled by the back-end.
