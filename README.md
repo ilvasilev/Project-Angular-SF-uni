@@ -7,6 +7,7 @@ What can be found here:
 
 ## Project description
 The blog project as the name suggest is a blog application using Angular 10 as a frontend and Node/Express/MongoDb/Mongoose for back-end. You can register, create articles, comment on your or other articles, like the comments and rate the articles. The project use reCaptcha for front-end and back-end verification. The whole app is a single page.
+This project uses two services - one is for the user part - authentication, registration, loogin. Other is for article part - create article, edit article, delete article, comments and ratings. One custom pipe is implemented, the shortener pipe that takes an value and cut the string that is used on with the value number.
 
 ## How to start the project
 
